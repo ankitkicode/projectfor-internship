@@ -3,7 +3,6 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import axios from 'axios';
 import { Paginator, PaginatorPageChangeEvent } from 'primereact/paginator';
-import { DataTableSelectionChangeEvent } from 'primereact/datatable';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import { InputNumber } from 'primereact/inputnumber';
@@ -39,7 +38,7 @@ const ArtTable: React.FC = () => {
         fetchData(page + 1);
     }, [page]);
 
-    const onSelectionChange = (e: DataTableSelectionChangeEvent<Artwork[]>) => {
+    const onSelectionChange = (e: { value: Artwork[] }) => {
         setSelectedArtworks(e.value);
     };
 
